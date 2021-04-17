@@ -15,8 +15,11 @@ const Form = (props) => {
       <h1 className="Title">Choose your favorites currencies</h1>
       <select>
         <option>SELECT</option>
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
+        {props.currencies.map((currency) => (
+          <option value={currency.code} key={currency.code}>
+            {currency.code}
+          </option>
+        ))}
       </select>
       <Button type={"Submit"}>Add</Button>
       <Button type={"Remove"}>Remove all</Button>
