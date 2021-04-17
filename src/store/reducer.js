@@ -3,6 +3,7 @@ import * as actionTypes from "./actionTypes";
 const InitialState = {
   currencies: [],
   currencyToAdd: null,
+  favoriteCurrencies: [],
 };
 
 const reducer = (state = InitialState, action) => {
@@ -17,6 +18,14 @@ const reducer = (state = InitialState, action) => {
       return {
         ...state,
         currencyToAdd: action.selectedCurrency,
+      };
+
+    case actionTypes.ADD_CURRENCY:
+      return {
+        ...state,
+        favoriteCurrencies: state.favoriteCurrencies.concat(
+          action.favoriteCurrency
+        ),
       };
 
     default:

@@ -33,3 +33,12 @@ export const selectCurrency = (currency) => {
     selectedCurrency: currency,
   };
 };
+
+export const addCurrency = (currency) => {
+  let favoriteCurrency = [];
+  favoriteCurrency.push(currency);
+  return {
+    type: actionTypes.ADD_CURRENCY,
+    favoriteCurrency: favoriteCurrency,
+  };
+};
