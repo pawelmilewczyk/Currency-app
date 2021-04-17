@@ -32,6 +32,11 @@ const Form = (props) => {
     props.selectCurrency(null);
   };
 
+  const removeHandler = (e) => {
+    e.preventDefault();
+    props.removeAll();
+  };
+
   return (
     <form className="Form">
       <h1 className="Title">Choose your favorites currencies</h1>
@@ -50,7 +55,13 @@ const Form = (props) => {
       >
         Add
       </Button>
-      <Button type={"Remove"}>Remove all</Button>
+      <Button
+        type={"Remove"}
+        clicked={removeHandler}
+        disabled={props.favorites.length === 0}
+      >
+        Remove all
+      </Button>
     </form>
   );
 };
@@ -58,6 +69,7 @@ const Form = (props) => {
 const mapStateToProps = (state) => {
   return {
     currencies: state.currencies,
+    favorites: state.favoriteCurrencies,
     currencyToAdd: state.currencyToAdd,
   };
 };
@@ -69,6 +81,7 @@ const mapDispatchToProps = (dispatch) => {
     addCurrency: (value) => dispatch(action.addCurrency(value)),
     updateCurrencies: (currencies) =>
       dispatch(action.updateCurrencies(currencies)),
+    removeAll: () => dispatch(action.removeAllFavorites()),
   };
 };
 
