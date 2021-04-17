@@ -8,6 +8,14 @@ html {
   position: relative;
   font-size: 62.5%; // 1rem = 10px
   box-sizing: border-box;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 350px) {
+    font-size: 45%;
+  }
 }
 
 body {

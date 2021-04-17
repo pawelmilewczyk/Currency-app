@@ -2,6 +2,10 @@
   margin: 5rem;
   background-color: #fff;
   box-shadow: 1rem 1rem 5rem rgba(#000, 0.1);
+
+  @media only screen and (max-width: 500px) {
+    margin: 1rem;
+  }
 }
 
 .Blur {

@@ -20,5 +20,9 @@
     outline: none;
     padding: 0 1rem;
     cursor: pointer;
+
+    @media only screen and (max-width: 350px) {
+      font-size: 1.5rem;
+    }
   }
 }
