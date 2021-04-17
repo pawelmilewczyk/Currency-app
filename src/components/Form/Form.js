@@ -7,7 +7,6 @@ import * as action from "../../store/actions";
 const Form = (props) => {
   useEffect(() => {
     props.getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const selectHandler = (e) => {
