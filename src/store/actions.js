@@ -26,3 +26,10 @@ export const getData = () => {
       .catch((err) => console.error(err));
   };
 };
+
+export const selectCurrency = (currency) => {
+  return {
+    type: actionTypes.SELECT_CURRENCY,
+    selectedCurrency: currency,
+  };
+};
