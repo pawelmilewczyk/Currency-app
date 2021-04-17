@@ -27,6 +27,11 @@ const reducer = (state = InitialState, action) => {
           action.favoriteCurrency
         ),
       };
+    case actionTypes.UPDATE_CURRENCIES:
+      return {
+        ...state,
+        currencies: action.currencies,
+      };
 
     default:
       return state;

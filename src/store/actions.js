@@ -42,3 +42,10 @@ export const addCurrency = (currency) => {
     favoriteCurrency: favoriteCurrency,
   };
 };
+
+export const updateCurrencies = (updatedCurrencies) => {
+  return {
+    type: actionTypes.SELECT_CURRENCY,
+    currencies: updatedCurrencies,
+  };
+};
