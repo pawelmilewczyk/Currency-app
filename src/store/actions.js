@@ -45,7 +45,7 @@ export const addCurrency = (currency) => {
 
 export const updateCurrencies = (updatedCurrencies) => {
   return {
-    type: actionTypes.SELECT_CURRENCY,
+    type: actionTypes.UPDATE_CURRENCIES,
     currencies: updatedCurrencies,
   };
 };

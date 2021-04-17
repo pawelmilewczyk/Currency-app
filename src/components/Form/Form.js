@@ -25,6 +25,10 @@ const Form = (props) => {
       (currency) => currency.code === props.currencyToAdd
     );
     props.addCurrency(selectedCurrency);
+    props.updateCurrencies(
+      props.currencies.filter((currency) => currency !== selectedCurrency)
+    );
+
     props.selectCurrency(null);
   };
 
@@ -63,6 +67,8 @@ const mapDispatchToProps = (dispatch) => {
     getData: () => dispatch(action.getData()),
     selectCurrency: (value) => dispatch(action.selectCurrency(value)),
     addCurrency: (value) => dispatch(action.addCurrency(value)),
+    updateCurrencies: (currencies) =>
+      dispatch(action.updateCurrencies(currencies)),
   };
 };
 
