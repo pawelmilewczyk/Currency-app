@@ -19,6 +19,10 @@ const Popup = (props) => {
     );
     props.removeCurrency(null);
   };
+
+  const cancelHandler = () => {
+    props.removeCurrency(null);
+  };
   return (
     <div className="Popup">
       <div className="Title">
@@ -28,7 +32,7 @@ const Popup = (props) => {
       <Button type="Remove" clicked={removeHandler}>
         Remove
       </Button>
-      <Button>Cancel</Button>
+      <Button clicked={cancelHandler}>Cancel</Button>
     </div>
   );
 };
