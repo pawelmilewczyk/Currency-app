@@ -11,7 +11,7 @@ function App(props) {
     <Aux>
       <div className={classes}>
         <Form />
-        {props.favorites.length > 0 ? <Favorites /> : null}
+        {props.favorites.length ? <Favorites /> : null}
       </div>
       {props.currencyToRemove ? <Popup /> : null}
     </Aux>

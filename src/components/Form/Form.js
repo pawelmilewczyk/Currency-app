@@ -59,7 +59,7 @@ const Form = (props) => {
       <Button
         type={"Remove"}
         clicked={removeHandler}
-        disabled={props.favorites.length === 0}
+        disabled={!props.favorites.length}
       >
         Remove all
       </Button>
