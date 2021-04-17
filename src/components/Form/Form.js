@@ -35,6 +35,7 @@ const Form = (props) => {
   const removeHandler = (e) => {
     e.preventDefault();
     props.removeAll();
+    props.currencyToRemove("ALL currencies");
   };
 
   return (
@@ -82,6 +83,7 @@ const mapDispatchToProps = (dispatch) => {
     updateCurrencies: (currencies) =>
       dispatch(action.updateCurrencies(currencies)),
     removeAll: () => dispatch(action.removeAllFavorites()),
+    currencyToRemove: (currency) => dispatch(action.removeCurrency(currency)),
   };
 };
 

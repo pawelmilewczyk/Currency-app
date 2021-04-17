@@ -5,18 +5,22 @@ import { connect } from "react-redux";
 
 const Popup = (props) => {
   const removeHandler = () => {
-    console.log(props.currencyToRemove);
-    props.updateFavorites(
-      props.favorites.filter(
-        (favorite) => favorite.code !== props.currencyToRemove
-      )
-    );
+    if (!props.removeAllFavorites) {
+      props.updateFavorites(
+        props.favorites.filter(
+          (favorite) => favorite.code !== props.currencyToRemove
+        )
+      );
 
-    props.updateCurrencies(
-      props.favorites
-        .filter((favorite) => favorite.code === props.currencyToRemove)
-        .concat(props.currencies)
-    );
+      props.updateCurrencies(
+        props.favorites
+          .filter((favorite) => favorite.code === props.currencyToRemove)
+          .concat(props.currencies)
+      );
+    } else {
+      props.updateCurrencies(props.currencies.concat(props.favorites));
+      props.updateFavorites([]);
+    }
     props.removeCurrency(null);
   };
 
@@ -26,7 +30,7 @@ const Popup = (props) => {
   return (
     <div className="Popup">
       <div className="Title">
-        Do you want to remove ALL currencies from favorites?
+        Do you want to remove {props.currencyToRemove} from favorites?
       </div>
 
       <Button type="Remove" clicked={removeHandler}>
@@ -42,6 +46,7 @@ const mapStateToProps = (state) => {
     currencies: state.currencies,
     favorites: state.favoriteCurrencies,
     currencyToRemove: state.currencyToRemove,
+    removeAllFavorites: state.removeAllFavorites,
   };
 };
 
