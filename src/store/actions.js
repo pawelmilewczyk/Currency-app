@@ -63,3 +63,9 @@ export const updateFavorites = (updatedFavorites) => {
     favorites: updatedFavorites,
   };
 };
+
+export const removeAllFavorites = () => {
+  return {
+    type: actionTypes.REMOVE_ALL_FAVORITES,
+  };
+};
