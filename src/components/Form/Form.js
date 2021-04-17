@@ -11,7 +11,15 @@ const Form = (props) => {
   }, []);
 
   const selectHandler = (e) => {
-    props.selectCurrency(e.target.value);
+    const inputValue = e.target.value;
+
+    if (inputValue !== "SELECT") props.selectCurrency(inputValue);
+    else props.selectCurrency(null);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    props.addCurrency(props.currencyToAdd);
   };
 
   return (
@@ -25,7 +33,13 @@ const Form = (props) => {
           </option>
         ))}
       </select>
-      <Button type={"Submit"}>Add</Button>
+      <Button
+        type={"Submit"}
+        clicked={submitHandler}
+        disabled={!props.currencyToAdd}
+      >
+        Add
+      </Button>
       <Button type={"Remove"}>Remove all</Button>
     </form>
   );
@@ -34,6 +48,7 @@ const Form = (props) => {
 const mapStateToProps = (state) => {
   return {
     currencies: state.currencies,
+    currencyToAdd: state.currencyToAdd,
   };
 };
 
@@ -41,6 +56,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getData: () => dispatch(action.getData()),
     selectCurrency: (value) => dispatch(action.selectCurrency(value)),
+    addCurrency: (value) => dispatch(action.addCurrency(value)),
   };
 };
 
