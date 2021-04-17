@@ -13,13 +13,19 @@ const Form = (props) => {
   const selectHandler = (e) => {
     const inputValue = e.target.value;
 
-    if (inputValue !== "SELECT") props.selectCurrency(inputValue);
-    else props.selectCurrency(null);
+    inputValue !== "SELECT"
+      ? props.selectCurrency(inputValue)
+      : props.selectCurrency(null);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.addCurrency(props.currencyToAdd);
+
+    const [selectedCurrency] = props.currencies.filter(
+      (currency) => currency.code === props.currencyToAdd
+    );
+    props.addCurrency(selectedCurrency);
+    props.selectCurrency(null);
   };
 
   return (
