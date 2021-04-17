@@ -10,10 +10,14 @@ const Form = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const selectHandler = (e) => {
+    props.selectCurrency(e.target.value);
+  };
+
   return (
     <form className="Form">
       <h1 className="Title">Choose your favorites currencies</h1>
-      <select>
+      <select onChange={selectHandler}>
         <option>SELECT</option>
         {props.currencies.map((currency) => (
           <option value={currency.code} key={currency.code}>
@@ -36,6 +40,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getData: () => dispatch(action.getData()),
+    selectCurrency: (value) => dispatch(action.selectCurrency(value)),
   };
 };
 
