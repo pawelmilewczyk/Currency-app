@@ -56,3 +56,10 @@ export const removeCurrency = (currency) => {
     currencyToRemove: currency,
   };
 };
+
+export const updateFavorites = (updatedFavorites) => {
+  return {
+    type: actionTypes.UPDATE_FAVORITES,
+    favorites: updatedFavorites,
+  };
+};

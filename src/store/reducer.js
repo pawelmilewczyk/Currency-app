@@ -40,6 +40,12 @@ const reducer = (state = InitialState, action) => {
         currencyToRemove: action.currencyToRemove,
       };
 
+    case actionTypes.UPDATE_FAVORITES:
+      return {
+        ...state,
+        favoriteCurrencies: action.favorites,
+      };
+
     default:
       return state;
   }
