@@ -4,6 +4,7 @@ const InitialState = {
   currencies: [],
   currencyToAdd: null,
   favoriteCurrencies: [],
+  currencyToRemove: null,
 };
 
 const reducer = (state = InitialState, action) => {
@@ -31,6 +32,12 @@ const reducer = (state = InitialState, action) => {
       return {
         ...state,
         currencies: action.currencies,
+      };
+
+    case actionTypes.REMOVE_CURRENCY:
+      return {
+        ...state,
+        currencyToRemove: action.currencyToRemove,
       };
 
     default:

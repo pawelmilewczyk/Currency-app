@@ -12,7 +12,7 @@ function App(props) {
         <Form />
         {props.favorites.length > 0 ? <Favorites /> : null}
       </div>
-      <Popup />
+      {/* <Popup /> */}
     </Aux>
   );
 }

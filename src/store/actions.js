@@ -49,3 +49,10 @@ export const updateCurrencies = (updatedCurrencies) => {
     currencies: updatedCurrencies,
   };
 };
+
+export const removeCurrency = (currency) => {
+  return {
+    type: actionTypes.REMOVE_CURRENCY,
+    currencyToRemove: currency,
+  };
+};
