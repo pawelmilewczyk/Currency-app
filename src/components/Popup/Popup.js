@@ -28,15 +28,17 @@ const Popup = (props) => {
     props.removeCurrency(null);
   };
   return (
-    <div className="Popup">
-      <div className="Title">
-        Do you want to remove {props.currencyToRemove} from favorites?
-      </div>
+    <div className="Overlay">
+      <div className="Popup">
+        <div className="Title">
+          Do you want to remove {props.currencyToRemove} from favorites?
+        </div>
 
-      <Button type="Remove" clicked={removeHandler}>
-        Remove
-      </Button>
-      <Button clicked={cancelHandler}>Cancel</Button>
+        <Button type="Remove" clicked={removeHandler}>
+          Remove
+        </Button>
+        <Button clicked={cancelHandler}>Cancel</Button>
+      </div>
     </div>
   );
 };
