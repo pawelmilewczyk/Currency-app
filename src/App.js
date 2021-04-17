@@ -6,13 +6,14 @@ import Aux from "./hoc/Aux";
 import { connect } from "react-redux";
 
 function App(props) {
+  const classes = props.currencyToRemove ? "App Blur" : "App";
   return (
     <Aux>
-      <div className="App">
+      <div className={classes}>
         <Form />
         {props.favorites.length > 0 ? <Favorites /> : null}
       </div>
-      {/* <Popup /> */}
+      {props.currencyToRemove ? <Popup /> : null}
     </Aux>
   );
 }
@@ -20,6 +21,7 @@ function App(props) {
 const mapStateToProps = (state) => {
   return {
     favorites: state.favoriteCurrencies,
+    currencyToRemove: state.currencyToRemove,
   };
 };
 
