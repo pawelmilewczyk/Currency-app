@@ -39,7 +39,7 @@ const Form = (props) => {
 
   return (
     <form className="Form">
-      <h1 className="Title">Choose your favorites currencies</h1>
+      <h1 className="Title">Choose your favorite currencies</h1>
       <select onChange={selectHandler}>
         <option>SELECT</option>
         {props.currencies.map((currency) => (
